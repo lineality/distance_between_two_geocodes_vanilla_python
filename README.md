@@ -6,5 +6,5 @@ This is a python function to calculate the distance between two geocodes (two pa
 - note: the number for the radius of the earth is a generalization and you may want to fine tune it for use in specific areas https://en.wikipedia.org/wiki/Earth_radius
 
 
-#### Compare results here to check:
+#### Compare results here to check (select statute miles (sm) NOT "n mi" for nauticle miles):
 https://www.nhc.noaa.gov/gccalc.shtml
