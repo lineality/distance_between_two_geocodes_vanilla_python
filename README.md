@@ -14,8 +14,8 @@ https://www.nhc.noaa.gov/gccalc.shtml
 
 #### Example Input and Use
 ```
-Idaho_City = (43.828850,	115.837860)
-Oneida = (43.095654,	75.669487)
+Idaho_City = (43.828850, 115.837860)
+Oneida = (43.095654, 75.669487)
 
 distance_between_two_geocodes_miles(Idaho_City, Oneida)
 distance_between_two_geocodes_miles(Idaho_City, Oneida, "kilometers")
