@@ -8,4 +8,5 @@ This is a python function to calculate the distance between two geocodes (two pa
 
 #### Compare results here to check 
 (select statute miles (sm) NOT "n mi" for nauticle miles):
+
 https://www.nhc.noaa.gov/gccalc.shtml
