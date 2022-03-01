@@ -14,8 +14,8 @@ def distance_between_two_geocodes_miles(location_tuple_1, location_tuple_2, unit
         lon_2: type=float, longitude of destination (location) in degrees 
           
     Returns:
-        km or mile
-        type or output: float
+        - units: km or mile
+        - type of output: float
 
     Adapted from:
     https://towardsdatascience.com/calculating-the-distance-between-two-locations-using-geocodes-1136d810e517    
