@@ -29,6 +29,7 @@ def distance_between_two_geocodes_miles(location_tuple_1, location_tuple_2, unit
     if units == "km" or units == "metric" or units == "kilometers" or  units == "kilo" or units == "si":
         metric_flag = True
 
+
     ##################################
     # Preparing numbers and variables
     ##################################
@@ -47,14 +48,33 @@ def distance_between_two_geocodes_miles(location_tuple_1, location_tuple_2, unit
     delta_lambda = math.radians(lon_2 - lon_1)
     
 
+    ##################
+    # Selecting Units
+    ##################
+
+    # r: radius of earth in Kilometers (general approximiation)
+    # https://en.wikipedia.org/wiki/Earth_radius
+    """
+    The units of the outout (miles or Kilometers)
+    depends on the units of the input.
+    Here the metric flag determines the units.
+
+    Note: for a specific geography you may want to use a different
+    estimate for the radius of earth (which is an average because
+    the earth is not a perfect sphere).
+    """
+    if metric_flag == False:
+        # this is miles
+        r = 3958.8
+
+    if metric_flag == True:
+        # this is metric
+        r = 6371 
+
     #######################
     # Calculating Distance
     #######################
 
-    # r: radius of earth in Kilometers (general approximiation)
-    # https://en.wikipedia.org/wiki/Earth_radius
-    r = 6371 
-    
     # a & c
     a = math.sin( delta_phi / 2 )**2 + math.cos( phi1 ) * math.cos( phi2 ) * math.sin( delta_lambda / 2 )**2
     
@@ -63,33 +83,25 @@ def distance_between_two_geocodes_miles(location_tuple_1, location_tuple_2, unit
     # distance in Kilometers (as d): d = r * c
     d = r * c
 
-
-    ######################
-    # Kilometers to Miles
-    ######################
-
-    kilometers = d
-
-    # conversion factor
-    conv_factor = 0.621371
-
-    # calculate miles
-    miles = kilometers * conv_factor
-
-    # # inspection
-    # # print Kilometers  
-    print (f'{kilometers:.2f} Kilometers')
-    # # print Miles  
-    print (f'{miles:.2f} Miles')
-
-    if metric_flag == False:
-        output = miles
-
-    if metric_flag == True:
-        output = kilometers
-
     #########
     # Output
     #########
 
+    output = d
+
     return output 
+
+# Examples
+
+tokyo = (80,170)
+osaka = (24,135)
+
+print( distance_between_two_geocodes_miles(tokyo, osaka, "mi") )
+print( distance_between_two_geocodes_miles(tokyo, osaka, "si") )
+ 
+
+Idaho_City = (43.828850,	115.837860)
+Oneida = (43.095654,	75.669487)
+
+print( distance_between_two_geocodes_miles(Idaho_City, Oneida) )
+print( distance_between_two_geocodes_miles(Idaho_City, Oneida, "kilometers") )
