@@ -35,10 +35,10 @@ def distance_between_two_geocodes_miles(location_tuple_1, location_tuple_2, unit
     ##################################
 
     # separate latitude and longitude for the two geocodes:
-    lat_1 = location_tuple_1[0]
-    lon_1 = location_tuple_1[1]
-    lat_2 = location_tuple_2[0]
-    lon_2 = location_tuple_2[1]
+    lat_1 = float( location_tuple_1[0] )
+    lon_1 = float( location_tuple_1[1] )
+    lat_2 = float( location_tuple_2[0] )
+    lon_2 = float( location_tuple_2[1] )
 
     # convert: degrees -> radians  
     phi1 = math.radians(lat_1)
